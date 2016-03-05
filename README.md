@@ -1,11 +1,11 @@
 # java-study
 java进阶知识点总结
 ###JDK，JRE和 jVM 的区别
-JVM：Java 虚拟机，负责将编译产生的字节码转换为特定机器代码，以一次编译多处执行；  
-JRE：java运行时环境，包含了java虚拟机jvm，java基础类库。是使用java语言编写的程序运行所需要的软件环境；
+JVM：Java 虚拟机，负责将编译产生的字节码转换为特定机器代码，实现一次编译多处执行；  
+JRE：java运行时环境，包含了java虚拟机jvm，java基础类库。是使用java语言编写的程序运行所需要的软件环境；  
 JDK：java开发工具包，是编写java程序所需的开发工具。JDK包含了JRE，同时还包含了编译器javac，调试和分析工具，JavaDoc。
 
-###自动装箱与拆箱 autoboxing and unboxing
+###自动装箱(autoboxing)与拆箱(unboxing)
 自动装箱是 Java 编译器在基本数据类型和对应的对象包装类型之间做的一个转化。
 比如：把 int 转化成 Integer，double 转化成 Double等,反之就是自动拆箱。  
 [Java中的自动装箱与拆箱](http://droidyue.com/blog/2015/04/07/autoboxing-and-autounboxing-in-java/index.html)
@@ -17,7 +17,7 @@ JDK：java开发工具包，是编写java程序所需的开发工具。JDK包含
 
 (1)和(2)都会明确的显式的调用构造函数；(3)是在内存上对已有对象的影印，所以不会调用构造函数 (4)是从文件中还原类的对象，也不会调用构造函数。
 
-###序列化与反序列化 Serializable and Deserialize 
+###序列化(Serializable )与反序列化(Deserialize) 
 对象序列化(Serializable)是指将对象转换为字节序列的过程，而反序列化则是根据字节序列恢复对象的过程。    
 序列化一般用于以下场景：   
 1.永久性保存对象，保存对象的字节序列到本地文件中；   
@@ -27,3 +27,5 @@ JDK：java开发工具包，是编写java程序所需的开发工具。JDK包含
 只有实现了Serializable和Externalizable接口的类的对象才能被序列化，   
 java.io.ObjectOutputStream代表对象输出流，它的writeObject(Objectobj)方法可对参数指定的obj对象进行序列化，把得到的字节序列写到一个目标输出流中。
 java.io.ObjectInputStream代表对象输入流，它的readObject()方法从一个源输入流中读取字节序列，再把它们反序列化为一个对象，并将其返回。
+
+###覆盖 (Overriding) 和重载 (Overloading)
