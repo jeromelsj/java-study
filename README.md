@@ -32,15 +32,14 @@ java.io.ObjectInputStream代表对象输入流，它的readObject()方法从一�
 Java 中的方法重载发生在同一个类里面两个或者是多个方法的方法名相同但是参数不同的情况；  
 方法覆盖是说子类重新定义了父类的方法，方法覆盖必须有相同的方法名，参数列表和返回类型。
 
-###HashCode和equal方法
-1、hashCode的存在主要是用于查找的快捷性，如Hashtable，HashMap等，hashCode是用来在散列存储结构中确定对象的存储地址的；  
-2、如果两个对象相同，就是适用于equals(java.lang.Object) 方法，那么这两个对象的hashCode一定要相同；  
-3、如果对象的equals方法被重写，那么对象的hashCode也尽量重写，并且产生hashCode使用的对象，一定要和equals方法中使用的一致，否则就会违反上面提到的第2点；  
-4、两个对象的hashCode相同，并不一定表示两个对象就相同，也就是不一定适用于equals(java.lang.Object)方法，只能够说明这两个对象在散列存储结构中，如Hashtable，他们“存放在同一个篮子里”。   
-[HashCode和equal方法](http://www.cnblogs.com/nktblog/articles/2518111.html)
+###内存中的栈（stack）、堆(heap)和静态存储区的用法
+答：通常我们定义一个基本数据类型的变量，一个对象的引用，还有就是函数调用的现场保存都使用内存中的栈空间；而通过new关键字和构造器创建的对象放在堆空间；程序中的字面量（literal）如直接书写的100、“hello”和常量都是放在静态存储区中。栈空间操作最快但是也很小，通常大量的对象都是放在堆空间，整个内存包括硬盘上的虚拟内存都可以被当成堆空间来使用。   
+```java
+String str = new String(“hello”);
+```   
+上面的语句中 str 放在栈上，用 new 创建出来的字符串对象放在堆上，而“hello”这个字面量放在静态存储区。
 
 ###Java垃圾回收机制
-
 [Java 垃圾收集机制](http://wiki.jikexueyuan.com/project/java-vm/garbage-collection-mechanism.html)
 
 ###强引用、弱引用、软引用、虚引用  
@@ -51,3 +50,16 @@ Java 中的方法重载发生在同一个类里面两个或者是多个方法的
 [Java 7之基础 - 强引用、弱引用、软引用、虚引用](http://blog.csdn.net/mazhimazh/article/details/19752475)
 
 ###List,Map,Set
+
+
+###HashCode和equal方法
+1、hashCode的存在主要是用于查找的快捷性，如Hashtable，HashMap等，hashCode是用来在散列存储结构中确定对象的存储地址的；  
+2、如果两个对象相同，就是适用于equals(java.lang.Object) 方法，那么这两个对象的hashCode一定要相同；  
+3、如果对象的equals方法被重写，那么对象的hashCode也尽量重写，并且产生hashCode使用的对象，一定要和equals方法中使用的一致，否则就会违反上面提到的第2点；  
+4、两个对象的hashCode相同，并不一定表示两个对象就相同，也就是不一定适用于equals(java.lang.Object)方法，只能够说明这两个对象在散列存储结构中，如Hashtable，他们“存放在同一个篮子里”。   
+[HashCode和equal方法](http://www.cnblogs.com/nktblog/articles/2518111.html)
+
+###用户线程(User Thread)与守护线程(Daemon Thread) 
+守护线程，是指用户程序在运行的时候后台提供的一种通用服务的线程。只要当前JVM实例中尚存在任何一个用户线程没有结束，守护线程就全部工作；只有当最后一个用户线程结束时，守护线程随着 JVM 一同结束工作。 守护线程最典型的应用就是 GC (垃圾回收器)。        
+[JAVA并发编程——守护线程(Daemon Thread)](http://www.cnblogs.com/luochengor/archive/2011/08/11/2134818.html)
+
