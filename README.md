@@ -1,5 +1,5 @@
 # java-study
-java面试知识点总结
+java面试知识点总结(持续更新，欢迎star,fork补充)
 ###JDK，JRE和 jVM 的区别
 JVM：Java 虚拟机，负责将编译产生的字节码转换为特定机器代码，实现一次编译多处执行；  
 JRE：java运行时环境，包含了java虚拟机jvm，java基础类库。是使用java语言编写的程序运行所需要的软件环境；  
@@ -53,7 +53,7 @@ String str = new String(“hello”);
 [Java 7之基础 - 强引用、弱引用、软引用、虚引用](http://blog.csdn.net/mazhimazh/article/details/19752475)
 
 ###List,Map,Set
-
+[集合大家族](http://wiki.jikexueyuan.com/project/java-enhancement/java-twenty.html)
 
 ###HashCode和equal方法
 1、hashCode的存在主要是用于查找的快捷性，如Hashtable，HashMap等，hashCode是用来在散列存储结构中确定对象的存储地址的；  
