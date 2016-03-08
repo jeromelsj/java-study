@@ -53,6 +53,7 @@ String str = new String(“hello”);
 [Java 7之基础 - 强引用、弱引用、软引用、虚引用](http://blog.csdn.net/mazhimazh/article/details/19752475)
 
 ###List,Map,Set
+![图示](https://github.com/ALLENnan/java-study/MU8EIZ.6Y2GK46.EY7.E5YV.png)
 [集合大家族](http://wiki.jikexueyuan.com/project/java-enhancement/java-twenty.html)
 
 ###HashCode和equal方法
