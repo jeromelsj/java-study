@@ -13,6 +13,14 @@ JDK：java开发工具包，是编写java程序所需的开发工具。JDK包含
 Integer  a=1;//这就是一个自动装箱，如果没有自动装箱的话，需要这样Integer  a=new Integer(1)
 int b=a;//这就是一个自动拆箱，如果没有自动拆箱的话，需要这样：int b=a.intValue()
 这样就能看出自动装箱和自动拆箱是简化了基本数据类型和相对应对象的转化步骤
+###Java中为什么要为基本类型提供封装类呢？
+一是为了在各种类型间转化，通过各种方法的调用。否则 你无法直接通过变量转化。
+比如，现在int要转为String
+int a=0;
+String result=Integer.toString(a);
+二是比如我现在要用泛型
+List<Integer> nums;
+这里<>需要类。如果你用int。它会报错的
 ###Java 创建对象的几种方式
 (1) 用 new 语句创建对象，这是最常见的创建对象的方法  
 (2) 运用反射手段,调用 java.lang.Class 或者 java.lang.reflect.Constructor 类的 newInstance() 实例方法  
