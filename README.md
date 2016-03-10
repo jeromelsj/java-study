@@ -9,6 +9,10 @@ JDK：java开发工具包，是编写java程序所需的开发工具。JDK包含
 自动装箱是 Java 编译器在基本数据类型和对应的对象包装类型之间做的一个转化。
 比如：把 int 转化成 Integer，double 转化成 Double等,反之就是自动拆箱。  
 [Java中的自动装箱与拆箱](http://droidyue.com/blog/2015/04/07/autoboxing-and-autounboxing-in-java/index.html)
+###自动装箱有什么用
+Integer  a=1;//这就是一个自动装箱，如果没有自动装箱的话，需要这样Integer  a=new Integer(1)
+int b=a;//这就是一个自动拆箱，如果没有自动拆箱的话，需要这样：int b=a.intValue()
+这样就能看出自动装箱和自动拆箱是简化了基本数据类型和相对应对象的转化步骤
 ###Java 创建对象的几种方式
 (1) 用 new 语句创建对象，这是最常见的创建对象的方法  
 (2) 运用反射手段,调用 java.lang.Class 或者 java.lang.reflect.Constructor 类的 newInstance() 实例方法  
