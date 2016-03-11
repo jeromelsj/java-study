@@ -9,6 +9,18 @@ JDK：java开发工具包，是编写java程序所需的开发工具。JDK包含
 自动装箱是 Java 编译器在基本数据类型和对应的对象包装类型之间做的一个转化。
 比如：把 int 转化成 Integer，double 转化成 Double等,反之就是自动拆箱。  
 [Java中的自动装箱与拆箱](http://droidyue.com/blog/2015/04/07/autoboxing-and-autounboxing-in-java/index.html)
+###自动装箱有什么用
+Integer  a=1;//这就是一个自动装箱，如果没有自动装箱的话，需要这样Integer  a=new Integer(1)
+int b=a;//这就是一个自动拆箱，如果没有自动拆箱的话，需要这样：int b=a.intValue()
+这样就能看出自动装箱和自动拆箱是简化了基本数据类型和相对应对象的转化步骤
+###Java中为什么要为基本类型提供封装类呢？
+一是为了在各种类型间转化，通过各种方法的调用。否则 你无法直接通过变量转化。
+比如，现在int要转为String
+int a=0;
+String result=Integer.toString(a);
+二是比如我现在要用泛型
+List<Integer> nums;
+这里<>需要类。如果你用int。它会报错的
 ###Java 创建对象的几种方式
 (1) 用 new 语句创建对象，这是最常见的创建对象的方法  
 (2) 运用反射手段,调用 java.lang.Class 或者 java.lang.reflect.Constructor 类的 newInstance() 实例方法  
@@ -16,6 +28,10 @@ JDK：java开发工具包，是编写java程序所需的开发工具。JDK包含
 (4) 运用反序列化手段，调用 java.io.ObjectInputStream 对象的 readObject() 方法
 
 (1)和(2)都会明确的显式的调用构造函数；(3)是在内存上对已有对象的影印，所以不会调用构造函数 (4)是从文件中还原类的对象，也不会调用构造函数。
+###hashcode的作用
+Java中的hashCode方法就是根据一定的规则将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作为散列值。
+如果集合中已经存在一万条数据或者更多的数据，如果采用equals方法去逐一比较，效率必然是一个问题。此时hashCode方法的作用就体现出来了，当集合要添加新的对象时，先调用这个对象的hashCode方法，得到对应的hashcode值，实际上在HashMap的具体实现中会用一个table保存已经存进去的对象的hashcode值，如果table中没有该hashcode值，它就可以直接存进去，不用再进行任何比较了；如果存在该hashcode值，就调用它的equals方法与新元素进行比较，相同的话就不存了，不相同就散列其它的地址，所以这里存在一个冲突解决的问题，这样一来实际调用equals方法的次数就大大降低了。
+[hashcode方法的作用](http://www.cnblogs.com/dolphin0520/p/3681042.html)
 
 ###序列化(Serializable )与反序列化(Deserialize) 
 对象序列化(Serializable)是指将对象转换为字节序列的过程，而反序列化则是根据字节序列恢复对象的过程。    
